@@ -1,0 +1,36 @@
+name: Publish opmc CLI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'als-opmc-cli-main/**'
+      - '.forgejo/workflows/publish-opmc.yaml'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: docker
+    container:
+      image: node:22
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: als-opmc-cli-main
+
+      - name: Build
+        run: npm run build
+        working-directory: als-opmc-cli-main
+
+      - name: Configure Forgejo registry
+        run: |
+          echo "//forgejo.hypermack.com/api/packages/aleisium/npm/:_authToken=${{ secrets.FORGEJO_TOKEN }}" > .npmrc
+          echo "@aleisium:registry=https://forgejo.hypermack.com/api/packages/aleisium/npm/" >> .npmrc
+        working-directory: als-opmc-cli-main
+
+      - name: Publish
+        run: npm publish
+        working-directory: als-opmc-cli-main
