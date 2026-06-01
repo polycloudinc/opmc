@@ -1,7 +1,6 @@
 {
   "name": "@aleisium/opmc",
   "version": "0.0.1",
-  "private": true,
   "bin": {
     "opmc": "dist/index.js"
   },
