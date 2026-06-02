@@ -6,6 +6,7 @@ on:
     paths:
       - 'als-opmc-cli-main/**'
       - '.forgejo/workflows/publish-opmc.yaml'
+      - 'version'
   workflow_dispatch:
 
 jobs:
@@ -19,6 +20,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: als-opmc-cli-main
+
+      - name: Set version
+        run: |
+          source ../version
+          VERSION_REVISION=$(git rev-list HEAD --count)
+          VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+          npm version "$VERSION" --no-git-tag-version
         working-directory: als-opmc-cli-main
 
       - name: Build
