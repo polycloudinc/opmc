@@ -24,7 +24,7 @@ jobs:
 
       - name: Set version
         run: |
-          source ../../../version
+          source ../version
           VERSION_REVISION=$(git rev-list HEAD --count)
           VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
           echo VERSION=$VERSION
