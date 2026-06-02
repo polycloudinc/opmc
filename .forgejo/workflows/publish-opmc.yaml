@@ -27,8 +27,9 @@ jobs:
 
       - name: Configure Forgejo registry
         run: |
-          echo "//forgejo.hypermack.com/api/packages/aleisium/npm/:_authToken=${{ secrets.PACKAGES_TOKEN }}" > .npmrc
-          echo "@aleisium:registry=https://forgejo.hypermack.com/api/packages/aleisium/npm/" >> .npmrc
+          HOST=$(echo "$GITHUB_SERVER_URL" | sed 's|https://||')
+          echo "//${HOST}/api/packages/aleisium/npm/:_authToken=${{ secrets.PACKAGES_TOKEN }}" > .npmrc
+          echo "@aleisium:registry=${GITHUB_SERVER_URL}/api/packages/aleisium/npm/" >> .npmrc
         working-directory: als-opmc-cli-main
 
       - name: Publish
