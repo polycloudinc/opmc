@@ -24,9 +24,10 @@ jobs:
 
       - name: Set version
         run: |
-          source ../version
+          source ../../../version
           VERSION_REVISION=$(git rev-list HEAD --count)
           VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+          echo VERSION=$VERSION
           node -e "const p=require('./package.json');p.version='${VERSION}';require('fs').writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
         working-directory: als-opmc-cli-main
 
