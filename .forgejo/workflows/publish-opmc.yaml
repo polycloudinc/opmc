@@ -28,8 +28,8 @@ jobs:
       - name: Configure Forgejo registry
         run: |
           HOST=$(echo "$GITHUB_SERVER_URL" | sed 's|https://||')
-          echo "//${HOST}/api/packages/aleisium/npm/:_authToken=${{ secrets.PACKAGES_TOKEN }}" > .npmrc
-          echo "@aleisium:registry=${GITHUB_SERVER_URL}/api/packages/aleisium/npm/" >> .npmrc
+          echo "//${HOST}/api/packages/${GITHUB_REPOSITORY}/npm/:_authToken=${{ secrets.PACKAGES_TOKEN }}" > .npmrc
+          echo "@aleisium:registry=${GITHUB_SERVER_URL}/api/packages/${GITHUB_REPOSITORY}/npm/" >> .npmrc
         working-directory: als-opmc-cli-main
 
       - name: Publish
