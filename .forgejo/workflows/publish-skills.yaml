@@ -14,7 +14,7 @@ jobs:
   publish:
     runs-on: docker
     container:
-      image: alpine/git:latest
+      image: node:22
 
     steps:
       - uses: actions/checkout@v4
