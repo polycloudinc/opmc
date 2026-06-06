@@ -1,0 +1,33 @@
+name: Publish OPMC Skills (APM)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apm.yml'
+      - '.apm/**'
+      - '.forgejo/workflows/publish-skills.yaml'
+      - 'version'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: docker
+    container:
+      image: alpine/git:latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Tag and push
+        run: |
+          source version
+          VERSION_REVISION=$(git rev-list HEAD --count)
+          TAG="v${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+          echo "Tagging ${TAG}"
+          git config user.email "ci@forgejo.aleisium.com"
+          git config user.name "Forgejo CI"
+          git tag -a "${TAG}" -m "Release ${TAG}"
+          git push origin "${TAG}"

@@ -1,14 +1,26 @@
 # OPMC CLI
 
-CLI tool for working with the OPMC model (Org-Product-Module-Component).
+CLI tool for working with the OPMC model (Org-Product-Module-Component). Available as an npm package for direct use and as an APM package providing agent skills.
 
 ## Setup
 
-### Install
+### CLI (npm)
+
+Install Node.js, then configure the registry:
 
 ```
 npm config set @aleisium:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
 ```
+
+### Agent Skills (APM)
+
+Install [APM](https://microsoft.github.io/apm/), then add the skills to your project:
+
+```
+apm install aleisium/als_sys_app_opmc
+```
+
+This deploys OPMC agent skills into your project's harness directories so AI coding assistants can manage OPMC identity files automatically.
 
 ### Run
 
