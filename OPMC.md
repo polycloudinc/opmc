@@ -14,11 +14,29 @@ npm config set @aleisium:registry https://forgejo.aleisium.com/api/packages/alei
 
 ### Agent Skills (APM)
 
-Install [APM](https://microsoft.github.io/apm/), then add the skills to your project:
+1.  Install [APM](https://microsoft.github.io/apm/) (not available via `npx`):
 
-```
-apm install aleisium/als_sys_app_opmc
-```
+    ```
+    curl -sSL https://aka.ms/apm-unix | sh
+    ```
+
+2.  Add the skills to your project:
+
+    ```
+    apm install ssh://git@forgejo.aleisium.com:222/aleisium/als_sys_app_opmc.git --ssh --target opencode
+    ```
+
+    The `--ssh` flag uses your existing SSH key. The `--target` flag is required on first install if no agent harness files (`.opencode/`, `.claude/`, `.cursor/`, etc.) exist in the project yet. Once any harness directory is present, `--target` becomes optional.
+
+    If `apm install` adds a malformed dependency entry to `apm.yml` during resolution, edit it manually to use the full SSH URL:
+
+    ```yaml
+    dependencies:
+      apm:
+        - ssh://git@forgejo.aleisium.com:222/aleisium/als_sys_app_opmc.git
+    ```
+
+    Then run bare `apm install --ssh`.
 
 This deploys OPMC agent skills into your project's harness directories so AI coding assistants can manage OPMC identity files automatically.
 
