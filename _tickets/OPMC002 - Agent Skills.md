@@ -9,7 +9,7 @@ name: Agent Skills
 subjects:
   - agent
   - skills
-ticket_status: todo
+ticket_status: "[[Complete]]"
 ticket_priority: medium
 ---
 # Open Actions

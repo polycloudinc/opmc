@@ -9,7 +9,7 @@ name: CLI
 subjects:
   - CLI
   - initial-version
-ticket_status: todo
+ticket_status: "[[Complete]]"
 ticket_priority: high
 ---
 # Open Actions

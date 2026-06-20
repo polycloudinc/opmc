@@ -1,0 +1,33 @@
+lockfile_version: '1'
+generated_at: '2026-06-20T03:33:15.287434+00:00'
+apm_version: 0.18.0
+dependencies:
+- repo_url: aleisium/mv_pdg_modver
+  host: forgejo.aleisium.com
+  resolved_commit: 13e00ca9b7d4f52b76aad127f4de8d8666bed66a
+  package_type: apm_package
+  deployed_files:
+  - .agents/skills/modver-forgejo-workflow
+  content_hash: sha256:38deb95157250ade3033e1a7aa756daf655fcd53d2ada02b7ebb65e09ba02ffb
+  is_dev: true
+- repo_url: aleisium/mv_pdg_tickets
+  host: forgejo.aleisium.com
+  resolved_commit: b391a26ed213590b25d5e3dce6359a18bdaeafeb
+  package_type: apm_package
+  deployed_files:
+  - .agents/skills/tickets-create
+  - .agents/skills/tickets-execution-plan
+  - .agents/skills/tickets-init
+  - .agents/skills/tickets-list
+  - .agents/skills/tickets-rank
+  - .agents/skills/tickets-review
+  - .agents/skills/tickets-transition
+  content_hash: sha256:13a91de71a69cecb4367ae58b0c9672c16f1d04ddc8d565741e9be4be0f42ffe
+local_deployed_files:
+- .agents/skills/opmc-component-qualified-name
+- .agents/skills/opmc-component-set
+- .agents/skills/opmc-module-qualified-name
+- .agents/skills/opmc-module-set
+- .agents/skills/opmc-org-set
+- .agents/skills/opmc-product-qualified-name
+- .agents/skills/opmc-product-set
