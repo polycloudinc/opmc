@@ -1,16 +1,17 @@
 ---
-template: "[[Ticket]]"
+template: '[[Ticket]]'
 kind: ticket
 tags:
-  - ticket
+- ticket
 code: OPMC002
-aliases:
+aliases: null
 name: Agent Skills
 subjects:
-  - agent
-  - skills
-ticket_status: "[[Complete]]"
+- agent
+- skills
+ticket_status: '[[Complete]]'
 ticket_priority: medium
+ticket_rank:
 ---
 # Open Actions
 

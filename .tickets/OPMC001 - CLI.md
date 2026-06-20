@@ -1,16 +1,17 @@
 ---
-template: "[[Ticket]]"
+template: '[[Ticket]]'
 kind: ticket
 tags:
-  - ticket
+- ticket
 code: OPMC001
-aliases:
+aliases: null
 name: CLI
 subjects:
-  - CLI
-  - initial-version
-ticket_status: "[[Complete]]"
+- CLI
+- initial-version
+ticket_status: '[[Complete]]'
 ticket_priority: high
+ticket_rank:
 ---
 # Open Actions
 
