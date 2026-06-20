@@ -5,9 +5,15 @@
   },
   "mounts": [
     "type=bind,source=${localEnv:HOME}/.config/opencode,target=/home/vscode/.config/opencode",
-    "type=bind,source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode"
-    "type=bind,source=${localEnv:HOME}/.local/state/opencode,target=/home/vscode/.local/state/opencode"
+    "type=bind,source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode",
+    "type=bind,source=${localEnv:HOME}/.local/state/opencode,target=/home/vscode/.local/state/opencode",
+    "type=bind,source=${localEnv:HOME}/.git-credentials,target=/home/vscode/.git-credentials",
+    "type=bind,source=${localEnv:HOME}/.npmrc,target=/home/vscode/.npmrc"
   ],
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": []
