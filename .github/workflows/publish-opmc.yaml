@@ -2,7 +2,7 @@ name: Publish opmc CLI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'polycloud-opmc-cli-main/**'
       - '.github/workflows/publish-opmc.yaml'

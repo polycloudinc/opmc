@@ -2,7 +2,7 @@ name: Publish OPMC Skills (APM)
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'apm.yml'
       - '.apm/**'
