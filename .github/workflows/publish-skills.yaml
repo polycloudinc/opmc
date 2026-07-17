@@ -13,6 +13,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +27,9 @@ jobs:
           VERSION_REVISION=$(git rev-list HEAD --count)
           TAG="v${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
           echo "Tagging ${TAG}"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
+          git config user.email "buildbot@polycloud.co"
+          git config user.name "buildbot"
           git tag -a "${TAG}" -m "Release ${TAG}"
           git push origin "${TAG}"
+        env:
+          GH_TOKEN: ${{ github.token }}
