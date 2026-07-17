@@ -9,7 +9,7 @@ aliases:
 name: Package Documentation Strategy As Apm Instructions
 ticket_status: '[[Complete]]'
 ticket_priority: Medium
-ticket_rank: null
+ticket_rank:
 ticket_created: '2026-06-20T10:39:31Z'
 ticket_updated: '2026-06-20T11:20:06Z'
 ticket_completed: '2026-06-20T11:20:06Z'

@@ -21,5 +21,5 @@ npx @polycloudinc/opmc org set --symbol <symbol> --name <name>
 If `npx` prompts about an unknown registry, run:
 
 ```
-npm config set @polycloudinc:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
+npm config set @polycloudinc:registry https://registry.npmjs.org/
 ```

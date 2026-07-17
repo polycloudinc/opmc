@@ -9,7 +9,7 @@ Tooling and agent context for working with the OPMC model (Org-Product-Module-Co
 Install Node.js, then configure the registry:
 
 ```
-npm config set @polycloudinc:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
+npm config set @polycloudinc:registry https://registry.npmjs.org/
 ```
 
 ### Agent Skills (APM)
@@ -23,7 +23,7 @@ npm config set @polycloudinc:registry https://forgejo.aleisium.com/api/packages/
 2.  Add the skills to your project:
 
     ```
-    apm install ssh://git@forgejo.aleisium.com:222/aleisium/als_sys_app_opmc.git --ssh --target opencode
+    apm install ssh://git@github.com/polycloudinc/opmc.git --ssh --target opencode
     ```
 
     The `--ssh` flag uses your existing SSH key. The `--target` flag is required on first install if no agent harness files (`.opencode/`, `.claude/`, `.cursor/`, etc.) exist in the project yet. Once any harness directory is present, `--target` becomes optional.
@@ -33,7 +33,7 @@ npm config set @polycloudinc:registry https://forgejo.aleisium.com/api/packages/
     ```yaml
     dependencies:
       apm:
-        - ssh://git@forgejo.aleisium.com:222/aleisium/als_sys_app_opmc.git
+        - ssh://git@github.com/polycloudinc/opmc.git
     ```
 
     Then run bare `apm install --ssh`.
@@ -82,7 +82,7 @@ apm audit             # post-install drift detection
 
 ### Run
 
-All commands use `npx @polycloudinc/opmc`. If you haven't configured the registry, append `--registry=https://forgejo.aleisium.com/api/packages/aleisium/npm/` to the npx command.
+All commands use `npx @polycloudinc/opmc`. If you haven't configured the registry, append `--registry=https://registry.npmjs.org/` to the npx command.
 
 ## Commands
 
