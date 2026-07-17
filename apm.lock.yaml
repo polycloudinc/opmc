@@ -2,17 +2,17 @@ lockfile_version: '1'
 generated_at: '2026-06-20T07:13:40.972940+00:00'
 apm_version: 0.18.0
 dependencies:
-- repo_url: aleisium/mv_pdg_modver
-  host: forgejo.aleisium.com
-  resolved_commit: 986b10315eefc16e2e32abc7d0d8c452be2ef593
+- repo_url: polycloudinc/modver
+  host: github.com
+  resolved_commit: 0d8b1831c4d1aae61906bad3a003c0af127a67ad
   package_type: apm_package
   deployed_files:
   - .agents/skills/modver-forgejo-workflow
-  content_hash: sha256:06c643e038281a336bdc3270bbde000a2e2a1285a0616a6d2e49839620dfa614
+  content_hash: sha256:fe105ce9cdf967bcbc7a4d1037a6835f45ee12da993382e4cec3cddb91a494f2
   is_dev: true
-- repo_url: aleisium/mv_pdg_tickets
-  host: forgejo.aleisium.com
-  resolved_commit: e140481d6e687f8b54899b615f082e12672a990e
+- repo_url: polycloudinc/ticketscli
+  host: github.com
+  resolved_commit: e25c9d0cb7432c9d7c8a4cae8fa34521f886ad7c
   package_type: apm_package
   deployed_files:
   - .agents/skills/tickets-create
@@ -22,7 +22,7 @@ dependencies:
   - .agents/skills/tickets-rank
   - .agents/skills/tickets-review
   - .agents/skills/tickets-transition
-  content_hash: sha256:bef6e7728ad8e1ca0dd355de7a4c8644c21cc5f540a2f33c42cb48353ce31c5e
+  content_hash: sha256:2007a2a1dd7e8151ee66cb4e7e28d67cc86bc0defea2881eea6ba40c439ad69d
   is_dev: true
 local_deployed_files:
 - .agents/skills/opmc-component-qualified-name

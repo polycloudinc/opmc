@@ -38,22 +38,22 @@ Expose the OPMC CLI functionality as a set of agent skills that can be invoked b
 ## Decisions
 
 - **Distribution:** APM (Agent Package Manager) will be used to distribute the skills.
-- **Source module:** The skills source code lives in a new OPMC module `als-opmc-skills-main/` at the project root. OPMC coordinates: org=`als`, product=`opmc`, module=`skills`, component=`main`.
-- **Manifest and source layout:** APM requires `apm.yml` and `.apm/` to be siblings. Both must live together — either at the repo root (consumer ref: `aleisium/als_sys_app_opmc`) or inside `als-opmc-skills-main/` (consumer ref: `aleisium/als_sys_app_opmc/als-opmc-skills-main`). Final placement TBD based on preferred consumer reference.
+- **Source module:** The skills source code lives in a new OPMC module `polycloud-opmc-skills-main/` at the project root. OPMC coordinates: org=`polycloud`, product=`opmc`, module=`skills`, component=`main`.
+- **Manifest and source layout:** APM requires `apm.yml` and `.apm/` to be siblings. Both must live together — either at the repo root (consumer ref: `aleisium/als_sys_app_opmc`) or inside `polycloud-opmc-skills-main/` (consumer ref: `aleisium/als_sys_app_opmc/polycloud-opmc-skills-main`). Final placement TBD based on preferred consumer reference.
 - **Publishing:** A Forgejo Actions workflow will publish the APM package by tagging the repository with a version tag. APM resolves packages from Git tags — no package registry upload is required. The tag format is `v{MAJOR}.{MINOR}.{REVISION}` derived from the root `version` file and commit count. No tag collision with the CLI workflow (CLI publishes to npm registry directly without tags).
-- **Prerequisite handling:** Skills invoke the CLI via `npx @aleisium/opmc`. An instruction primitive will teach agents to verify `npx` availability before executing commands. A `check-prereqs` script in `apm.yml` provides a manual verification path for consumers.
+- **Prerequisite handling:** Skills invoke the CLI via `npx @polycloudinc/opmc`. An instruction primitive will teach agents to verify `npx` availability before executing commands. A `check-prereqs` script in `apm.yml` provides a manual verification path for consumers.
 - **Versioning:** Skills package version tracks the root `version` file (same source as CLI): `VERSION_MAJOR.VERSION_MINOR` + git commit count as `VERSION_REVISION`.
 
 ## Open Questions
 
 - **Target harnesses:** Which agent runtimes should the skills deploy to? Options: `claude`, `copilot`, `opencode`, `cursor`, `codex`, `gemini`, `windsurf`. Default: auto-detect all.
-- **Manifest placement:** Repo root (clean ref) vs inside `als-opmc-skills-main/` (clean module separation with virtual-path ref).
+- **Manifest placement:** Repo root (clean ref) vs inside `polycloud-opmc-skills-main/` (clean module separation with virtual-path ref).
 
 ## Execution Plan
 
-- [ ] Scaffold `als-opmc-skills-main/` with `apm.yml` and `.apm/skills/` directory
+- [ ] Scaffold `polycloud-opmc-skills-main/` with `apm.yml` and `.apm/skills/` directory
 - [ ] Author `SKILL.md` for each of the seven OPMC commands
-- [ ] Add `check-prereqs` script to verify `npx`/`@aleisium/opmc` availability
+- [ ] Add `check-prereqs` script to verify `npx`/`@polycloudinc/opmc` availability
 - [ ] Create Forgejo Actions workflow to tag and publish APM package
 - [ ] Update `OPMC.md` with APM install instructions for consumers
 - [ ] Tag ready for manual testing from a separate consumer repository

@@ -2,22 +2,22 @@ name: opmc-skills
 version: 0.0.0
 description: Agent skills for the OPMC (Org-Product-Module-Component) model CLI —
   create identity files, resolve qualified names.
-author: aleisium
+author: Brendon Matheson
 type: skill
 includes: auto
 dependencies:
   apm: []
 devDependencies:
   apm:
-  - forgejo.aleisium.com/aleisium/mv_pdg_tickets
-  - forgejo.aleisium.com/aleisium/mv_pdg_modver
+  - polycloudinc/ticketscli
+  - polycloudinc/modver
 scripts:
   check-prereqs: 'command -v npx >/dev/null 2>&1 || { echo "Error: npx is required
     (install Node.js from https://nodejs.org)"; exit 1; }
 
     echo "npx: $(npx --version)"
 
-    npx @aleisium/opmc --version 2>/dev/null || echo "Note: @aleisium/opmc will be
+    npx @polycloudinc/opmc --version 2>/dev/null || echo "Note: @polycloudinc/opmc will be
     downloaded by npx on first use"
 
     '

@@ -27,18 +27,18 @@ Create the initial version of the OPMC CLI tool. The CLI should provide commands
 
 ## OPMC Coordinates
 
-- **Org:** als
+- **Org:** polycloud
 - **Product:** opmc
 - **Module:** cli
 - **Component:** main
 
-The CLI source lives under `als-opmc-cli-main/` at the project root.
+The CLI source lives under `polycloud-opmc-cli-main/` at the project root.
 
 ## Implementation
 
 - **Language:** TypeScript
 - **Packaging:** npm package published to the private Forgejo package registry
-- **Package name:** `@aleisium/als-opmc-cli-main`
+- **Package name:** `@polycloudinc/polycloud-opmc-cli-main`
 - **Execution:** via `npx`
 
 ## Commands
@@ -254,11 +254,11 @@ This string is emitted to stdout.
 
 # Execution Plan
 
-- [ ] Scaffold `als-opmc-cli-main/` with TypeScript project structure (package.json, tsconfig.json, etc.)
+- [ ] Scaffold `polycloud-opmc-cli-main/` with TypeScript project structure (package.json, tsconfig.json, etc.)
 - [ ] Implement CLI entry point with subcommand routing
 - [ ] Implement `org set` subcommand with `--symbol` and `--name` options
 - [ ] Implement `org.yaml` discovery logic (walk up ancestors, update or create)
-- [ ] Configure npm package metadata (`@aleisium/als-opmc-cli-main`)
+- [ ] Configure npm package metadata (`@polycloudinc/polycloud-opmc-cli-main`)
 - [ ] Configure `bin` entry for `npx` execution
 - [ ] Test `org set` command in various scenarios (no file, existing file, ancestor file)
 - [ ] Implement `product set` subcommand with `--symbol` and `--name` options

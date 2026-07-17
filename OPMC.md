@@ -9,7 +9,7 @@ Tooling and agent context for working with the OPMC model (Org-Product-Module-Co
 Install Node.js, then configure the registry:
 
 ```
-npm config set @aleisium:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
+npm config set @polycloudinc:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
 ```
 
 ### Agent Skills (APM)
@@ -82,7 +82,7 @@ apm audit             # post-install drift detection
 
 ### Run
 
-All commands use `npx @aleisium/opmc`. If you haven't configured the registry, append `--registry=https://forgejo.aleisium.com/api/packages/aleisium/npm/` to the npx command.
+All commands use `npx @polycloudinc/opmc`. If you haven't configured the registry, append `--registry=https://forgejo.aleisium.com/api/packages/aleisium/npm/` to the npx command.
 
 ## Commands
 
@@ -93,13 +93,13 @@ Set or update the organization identity.
 Create a new org:
 
 ```
-npx @aleisium/opmc org set --symbol als --name Aleisium
+npx @polycloudinc/opmc org set --symbol polycloud --name Polycloud
 ```
 
 Update an existing org (add or change the name):
 
 ```
-npx @aleisium/opmc org set --name "Aleisium Pty Ltd"
+npx @polycloudinc/opmc org set --name "Aleisium Pty Ltd"
 ```
 
 ### `product set`
@@ -109,13 +109,13 @@ Set or update the product identity.
 Create a new product:
 
 ```
-npx @aleisium/opmc product set --symbol opmc --name "OPMC Model"
+npx @polycloudinc/opmc product set --symbol opmc --name "OPMC Model"
 ```
 
 Update an existing product:
 
 ```
-npx @aleisium/opmc product set --symbol opmc --name "Updated OPMC Model"
+npx @polycloudinc/opmc product set --symbol opmc --name "Updated OPMC Model"
 ```
 
 ### `module set`
@@ -123,7 +123,7 @@ npx @aleisium/opmc product set --symbol opmc --name "Updated OPMC Model"
 Set or update the module identity.
 
 ```
-npx @aleisium/opmc module set --symbol cli --name "CLI Module"
+npx @polycloudinc/opmc module set --symbol cli --name "CLI Module"
 ```
 
 ### `component set`
@@ -131,7 +131,7 @@ npx @aleisium/opmc module set --symbol cli --name "CLI Module"
 Set or update the component identity.
 
 ```
-npx @aleisium/opmc component set --symbol main --name "Main Component"
+npx @polycloudinc/opmc component set --symbol main --name "Main Component"
 ```
 
 ### `component qname`
@@ -141,13 +141,13 @@ Emit the fully qualified component name.
 Dashed style:
 
 ```
-npx @aleisium/opmc component qname --style dashed
+npx @polycloudinc/opmc component qname --style dashed
 ```
 
 Dotted style:
 
 ```
-npx @aleisium/opmc component qname --style dotted
+npx @polycloudinc/opmc component qname --style dotted
 ```
 
 ### `module qname`
@@ -157,13 +157,13 @@ Emit the fully qualified module name.
 Dashed style:
 
 ```
-npx @aleisium/opmc module qname --style dashed
+npx @polycloudinc/opmc module qname --style dashed
 ```
 
 Dotted style:
 
 ```
-npx @aleisium/opmc module qname --style dotted
+npx @polycloudinc/opmc module qname --style dotted
 ```
 
 ### `product qname`
@@ -173,11 +173,11 @@ Emit the fully qualified product name.
 Dashed style:
 
 ```
-npx @aleisium/opmc product qname --style dashed
+npx @polycloudinc/opmc product qname --style dashed
 ```
 
 Dotted style:
 
 ```
-npx @aleisium/opmc product qname --style dotted
+npx @polycloudinc/opmc product qname --style dotted
 ```

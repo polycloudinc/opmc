@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'als-opmc-cli-main/**'
+      - 'polycloud-opmc-cli-main/**'
       - '.forgejo/workflows/publish-opmc.yaml'
       - 'version'
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: als-opmc-cli-main
+        working-directory: polycloud-opmc-cli-main
 
       - name: Set version
         run: |
@@ -31,19 +31,19 @@ jobs:
           VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
           echo VERSION=$VERSION
           node -e "const p=require('./package.json');p.version='${VERSION}';require('fs').writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
-        working-directory: als-opmc-cli-main
+        working-directory: polycloud-opmc-cli-main
 
       - name: Build
         run: npm run build
-        working-directory: als-opmc-cli-main
+        working-directory: polycloud-opmc-cli-main
 
       - name: Configure Forgejo registry
         run: |
           HOST=$(echo "$GITHUB_SERVER_URL" | sed 's|https://||')
           echo "//${HOST}/api/packages/aleisium/npm/:_authToken=${{ secrets.PACKAGES_TOKEN }}" > .npmrc
-          echo "@aleisium:registry=${GITHUB_SERVER_URL}/api/packages/aleisium/npm/" >> .npmrc
-        working-directory: als-opmc-cli-main
+          echo "@polycloudinc:registry=${GITHUB_SERVER_URL}/api/packages/aleisium/npm/" >> .npmrc
+        working-directory: polycloud-opmc-cli-main
 
       - name: Publish
         run: npm publish
-        working-directory: als-opmc-cli-main
+        working-directory: polycloud-opmc-cli-main

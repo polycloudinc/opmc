@@ -8,7 +8,7 @@ description: Use when the user asks to set up, initialize, or update an OPMC org
 Create or update the organization identity file.
 
 ```
-npx @aleisium/opmc org set --symbol <symbol> --name <name>
+npx @polycloudinc/opmc org set --symbol <symbol> --name <name>
 ```
 
 - At least one of `--symbol` or `--name` must be provided.
@@ -21,5 +21,5 @@ npx @aleisium/opmc org set --symbol <symbol> --name <name>
 If `npx` prompts about an unknown registry, run:
 
 ```
-npm config set @aleisium:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
+npm config set @polycloudinc:registry https://forgejo.aleisium.com/api/packages/aleisium/npm/
 ```
